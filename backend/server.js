@@ -16,6 +16,21 @@ const CORS_ORIGIN = process.env.CORS_ORIGIN || 'http://localhost:3000';
 app.use(cors({ origin: CORS_ORIGIN, credentials: true }));
 app.use(express.json());
 
+// Root route
+app.get('/', (req, res) => {
+  res.json({ 
+    message: 'GreenLife Organic API',
+    status: 'running',
+    endpoints: {
+      health: '/api/health',
+      auth: '/api/auth',
+      products: '/api/products',
+      orders: '/api/orders',
+      admin: '/api/admin'
+    }
+  });
+});
+
 // Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/products', productRoutes);
