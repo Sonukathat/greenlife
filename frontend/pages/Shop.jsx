@@ -75,8 +75,8 @@ export const Shop = () => {
               className="w-full accent-green-600"
             />
             <div className="flex justify-between text-sm text-slate-500 mt-2">
-              <span>$1</span>
-              <span>Up to ${priceRange}</span>
+              <span>₹1</span>
+              <span>Up to ₹{priceRange}</span>
             </div>
           </div>
 

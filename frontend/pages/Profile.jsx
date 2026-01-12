@@ -60,7 +60,7 @@ export const Profile = () => {
                       </div>
                       <div>
                         <p className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Total</p>
-                        <p className="font-bold text-green-700">${order.total.toFixed(2)}</p>
+                        <p className="font-bold text-green-700">₹{order.total.toFixed(2)}</p>
                       </div>
                     </div>
                     <span className="px-4 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-full uppercase">

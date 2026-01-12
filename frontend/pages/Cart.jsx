@@ -74,7 +74,7 @@ export const Cart = () => {
                       +
                     </button>
                   </div>
-                  <span className="text-xl font-bold text-slate-900">${(item.price * item.quantity).toFixed(2)}</span>
+                  <span className="text-xl font-bold text-slate-900">₹{(item.price * item.quantity).toFixed(2)}</span>
                 </div>
               </div>
             </div>
@@ -88,15 +88,15 @@ export const Cart = () => {
             <div className="space-y-4 mb-8">
               <div className="flex justify-between text-slate-500">
                 <span>Subtotal</span>
-                <span className="text-slate-900 font-medium">${subtotal.toFixed(2)}</span>
+                <span className="text-slate-900 font-medium">₹{subtotal.toFixed(2)}</span>
               </div>
               <div className="flex justify-between text-slate-500">
                 <span>Shipping</span>
-                <span className="text-slate-900 font-medium">{shipping === 0 ? 'FREE' : `$${shipping.toFixed(2)}`}</span>
+                <span className="text-slate-900 font-medium">{shipping === 0 ? 'FREE' : `₹${shipping.toFixed(2)}`}</span>
               </div>
               <div className="pt-4 border-t border-slate-100 flex justify-between">
                 <span className="text-lg font-bold text-slate-900">Total</span>
-                <span className="text-2xl font-bold text-green-700">${total.toFixed(2)}</span>
+                <span className="text-2xl font-bold text-green-700">₹{total.toFixed(2)}</span>
               </div>
             </div>
 

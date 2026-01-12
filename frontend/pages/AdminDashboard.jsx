@@ -203,7 +203,7 @@ const AdminDashboard = () => {
           </div>
           <div className="stat-card">
             <h3>Total Inventory Value</h3>
-            <p className="stat-value">${stats.totalValue.toFixed(2)}</p>
+            <p className="stat-value">₹{stats.totalValue.toFixed(2)}</p>
           </div>
           <div className="stat-card">
             <h3>Low Stock Items</h3>
@@ -246,7 +246,7 @@ const AdminDashboard = () => {
                   <tr key={product._id}>
                     <td>{product.name}</td>
                     <td>{product.category}</td>
-                    <td>${product.price}</td>
+                    <td>₹{product.price}</td>
                     <td>
                       <span className={product.stock < 5 ? 'low-stock' : ''}>
                         {product.stock || 0}

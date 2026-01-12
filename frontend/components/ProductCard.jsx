@@ -40,7 +40,7 @@ export const ProductCard = ({ product }) => {
           <span className="ml-2 text-xs text-slate-400">({product.reviews})</span>
         </div>
         <div className="mt-4 flex items-center justify-between">
-          <span className="text-xl font-bold text-slate-900">${product.price.toFixed(2)}</span>
+          <span className="text-xl font-bold text-slate-900">₹{product.price.toFixed(2)}</span>
           <button 
             onClick={() => addToCart(product)}
             className="p-2.5 bg-green-50 text-green-700 hover:bg-green-600 hover:text-white rounded-lg transition-colors border border-green-100"

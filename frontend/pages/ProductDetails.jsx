@@ -53,7 +53,7 @@ export const ProductDetails = () => {
             </div>
           </div>
 
-          <p className="text-4xl font-bold text-slate-900">${product.price.toFixed(2)}</p>
+          <p className="text-4xl font-bold text-slate-900">₹{product.price.toFixed(2)}</p>
 
           <p className="text-slate-600 text-lg leading-relaxed">
             {product.description} Our products are carefully sourced from organic farms that prioritize soil health and ecological balance. No GMOs, no synthetic additives.
