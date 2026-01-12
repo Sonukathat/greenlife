@@ -81,9 +81,7 @@ const adminApi = {
   // Categories
   getCategories: async () => {
     try {
-      const response = await axios.get(`${API_BASE_URL}/admin/categories`, {
-        headers: { 'Authorization': `Bearer ${getAuthToken()}` }
-      });
+      const response = await axios.get(`${API_BASE_URL}/products/categories/all`);
       return response.data;
     } catch (error) {
       console.error('Error fetching categories:', error);
