@@ -1,4 +1,4 @@
-const API_BASE_URL = 'http://localhost:5000/api';
+const API_BASE_URL = 'https://greenlife-taupe.vercel.app/api';
 
 // Backend API client
 class BackendAPI {
