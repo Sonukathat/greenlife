@@ -13,7 +13,7 @@ export const Shop = () => {
   const initialCategory = searchParams.get('category') || 'All';
   
   const [selectedCategory, setSelectedCategory] = useState(initialCategory);
-  const [priceRange, setPriceRange] = useState(50);
+  const [priceRange, setPriceRange] = useState(1000);
   const [sortBy, setSortBy] = useState('newest');
 
   useEffect(() => {
@@ -69,7 +69,7 @@ export const Shop = () => {
             <input 
               type="range" 
               min="1" 
-              max="50" 
+              max="1000" 
               value={priceRange}
               onChange={(e) => setPriceRange(parseInt(e.target.value))}
               className="w-full accent-green-600"
