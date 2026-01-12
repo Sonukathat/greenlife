@@ -130,14 +130,13 @@ const AdminDashboard = () => {
       {/* Categories Management */}
       <div className="categories-section">
         <h2>Categories</h2>
-        <div className="category-form" style={{ gap: 8, alignItems: 'center' }}>
+        <div className="category-form">
           <input
             type="text"
             placeholder="New category name"
             value={newCategory}
             onChange={(e) => setNewCategory(e.target.value)}
             className="search-input"
-            style={{ maxWidth: 220 }}
           />
           <input
             type="text"
@@ -145,7 +144,6 @@ const AdminDashboard = () => {
             value={newCategoryImage}
             onChange={(e) => setNewCategoryImage(e.target.value)}
             className="search-input"
-            style={{ maxWidth: 260 }}
           />
           <button className="btn-add" onClick={handleAddCategory}>+ Add Category</button>
         </div>
@@ -154,7 +152,7 @@ const AdminDashboard = () => {
         ) : (
           <ul className="category-list">
             {categories.map(c => (
-              <li key={c._id} style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
+              <li key={c._id}>
                 {editingId === c._id ? (
                   <>
                     <input
@@ -162,7 +160,7 @@ const AdminDashboard = () => {
                       value={editingName}
                       onChange={(e) => setEditingName(e.target.value)}
                       className="search-input"
-                      style={{ maxWidth: 240 }}
+                      placeholder="Category name"
                     />
                     <input
                       type="text"
@@ -170,21 +168,24 @@ const AdminDashboard = () => {
                       onChange={(e) => setEditingImage(e.target.value)}
                       placeholder="Image URL (optional)"
                       className="search-input"
-                      style={{ maxWidth: 260 }}
                     />
-                    <button className="btn-edit" onClick={saveEditCategory}>Save</button>
-                    <button className="btn-delete" onClick={cancelEditCategory}>Cancel</button>
+                    <div style={{ display: 'flex', gap: '0.5rem' }}>
+                      <button className="btn-edit" onClick={saveEditCategory} style={{ flex: 1 }}>Save</button>
+                      <button className="btn-delete" onClick={cancelEditCategory} style={{ flex: 1 }}>Cancel</button>
+                    </div>
                   </>
                 ) : (
                   <>
                     {c.image ? (
-                      <img src={c.image} alt={c.name} style={{ width: 36, height: 36, borderRadius: 8, objectFit: 'cover' }} />
+                      <img src={c.image} alt={c.name} />
                     ) : (
-                      <div style={{ width: 36, height: 36, borderRadius: 8, background: '#e2e8f0' }}></div>
+                      <div style={{ width: '100%', height: '80px', borderRadius: '6px', background: '#e2e8f0', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#999', fontSize: '0.85rem' }}>No Image</div>
                     )}
                     <span>{c.name}</span>
-                    <button className="btn-edit" onClick={() => startEditCategory(c)}>Edit</button>
-                    <button className="btn-delete" onClick={() => handleDeleteCategory(c._id)}>Delete</button>
+                    <div style={{ display: 'flex', gap: '0.5rem' }}>
+                      <button className="btn-edit" onClick={() => startEditCategory(c)} style={{ flex: 1 }}>Edit</button>
+                      <button className="btn-delete" onClick={() => handleDeleteCategory(c._id)} style={{ flex: 1 }}>Delete</button>
+                    </div>
                   </>
                 )}
               </li>
