@@ -1,0 +1,16 @@
+# Node
+node_modules/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Env
+.env
+
+# Data persistence
+data/storage.json
+
+# Misc
+.DS_Store
