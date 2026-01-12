@@ -16,12 +16,6 @@ const CORS_ORIGIN = process.env.CORS_ORIGIN || 'http://localhost:3000';
 app.use(cors({ origin: CORS_ORIGIN, credentials: true }));
 app.use(express.json());
 
-// Request logging
-app.use((req, res, next) => {
-  console.log(`${req.method} ${req.path}`);
-  next();
-});
-
 // Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/products', productRoutes);
@@ -44,17 +38,18 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: 'Internal server error' });
 });
 
-const start = async () => {
-  try {
-    await connectDB();
-    app.listen(PORT, () => {
-      console.log(`GreenLife Backend server running on http://localhost:${PORT}`);
-      console.log(`API endpoints available at http://localhost:${PORT}/api`);
-    });
-  } catch (error) {
-    console.error('Failed to start server:', error);
-    process.exit(1);
-  }
-};
+// Connect to MongoDB
+connectDB().catch(err => {
+  console.error('MongoDB connection error:', err);
+});
 
-start();
+// For local development
+if (process.env.NODE_ENV !== 'production') {
+  const PORT = process.env.PORT || 5000;
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+  });
+}
+
+// Export for Vercel
+export default app;
